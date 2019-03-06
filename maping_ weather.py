@@ -28,5 +28,10 @@ map_ws = folium.Map(location=[0,0],zoom_start=2)
 
 CWD = os.getcwd()
 
+for n in range(len(lons)):
+    folium.Marker(lats[n],lons[n]).add_to(map_ws)
+
+
 map_ws.save('wsmap1.html')
 webbrowser.open_new('file://'+CWD+'/wsmap1.html')
+
