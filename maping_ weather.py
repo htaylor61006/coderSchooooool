@@ -24,12 +24,22 @@ for station in stations['items']:
     wsnames.append(station['weather_stn_name'])
 
 
-map_ws = folium.Map(location=[0,0],zoom_start=2)
+map_ws = folium.Map(location=[0,0],
+                    tiles= 'Stamen Toner',
+                    zoom_start=2,
+                    zoom_control=False,
+                    max_zoom= 10,
+                    min_zoom=3,
+                    max_native_zoom= 10,
+                    no_touch= True)
 
 CWD = os.getcwd()
 
 for n in range(len(lons)):
-    folium.Marker(lats[n],lons[n]).add_to(map_ws)
+    folium.Marker([lats[n],lons[n]],
+                  popup=wsnames[n],
+                  icon=folium.Icon(icon='cloud',
+                                   color= 'purple')).add_to(map_ws)
 
 
 map_ws.save('wsmap1.html')
