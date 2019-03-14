@@ -25,13 +25,15 @@ for station in stations['items']:
 
 
 map_ws = folium.Map(location=[0,0],
-                    tiles= 'Stamen Toner',
+                    tiles= 'Mapbox Control Room',
                     zoom_start=2,
                     zoom_control=False,
                     max_zoom= 10,
-                    min_zoom=3,
+                    min_zoom=2,
                     max_native_zoom= 10,
                     no_touch= True)
+
+map_ws.fit_bounds([[52.193636, -2.221575], [52.636878, -1.139759]])
 
 CWD = os.getcwd()
 
