@@ -1,6 +1,18 @@
 alphabet= 'abcdefghijklmnopqrstuvwxyz'
-print(alphabet[0:3])
-key = 12
-character = input('Please enter a character. now!!! ')
-position= alphabet.find(character)
-newPosition = position + key
+key = int(input('enter number to be key '))
+newMessage=""
+
+message = input(' please enter message!!!!!!!!!!!! ')
+
+for character in message:
+    if character in alphabet:
+
+        
+        position= alphabet.find(character)
+        newPosition = (position + key) %26
+        newCharacter= alphabet[newPosition]
+        #print(character, "is now", newCharacter)
+        newMessage += newCharacter
+    else:
+        newMessage += character
+print(newMessage)
