@@ -66,23 +66,48 @@ def menu():
             print('3. Decrypt a message')
             print('4. Quit the program')
             choice = input('Please type 1,2,3 or 4 and press Enter ')
+        if choice== '1':
+            sheets= int(input('How many one time pads would you like to generate? '))
+            length= int(input('What will be your maximum message lenght? '))
+            generate_otp(sheets, length)
 
+        elif choice=='2':
+            filename= input('Type the filename of the otp you want to use. ')
+            sheet= load_sheet(filename)
+            plaintext= get_plain_text()
+            ciphertext= encrypt(plaintext,sheet)
+            filename= input('What will be the name of your encrypted file? ')
+            save_file(filename,ciphertext)
+        
+            
 
-    #need to compleate function
-
+        break
 
             
-generate_otp(5,100)
-sheet=load_sheet('otp3.txt')
-msg=get_plain_text()
-cypher_text=encrypt(msg,sheet)
-print(cypher_text)
-#plain_text= decrypt(cypher_text,sheet)
-sheet_guess = input("which otp to use?: ")
-current_sheet = 'otp' + sheet_guess + '.txt'
-sheet = load_sheet(current_sheet)
-plain_text = decrypt(cypher_text,sheet)
-print(plain_text)
+
+
+
+menu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
